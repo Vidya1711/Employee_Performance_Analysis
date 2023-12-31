@@ -21,7 +21,10 @@ class DataPreProcessStrategy(DataStrategy):
             enc = LabelEncoder()
             for i in (2, 3, 4, 5, 6, 7, 16, 26):
                 data.iloc[:, i] = enc.fit_transform(data.iloc[:, i])
-            data.drop(['EmpNumber'], axis=1, inplace=True)
+            data.drop(['EmpNumber','Age','Attrition','EmpRelationshipSatisfaction',
+       'TotalWorkExperienceInYears', 'TrainingTimesLastYear','EmpHourlyRate', 'EmpJobInvolvement', 'EmpJobLevel',
+       'EmpJobSatisfaction', 'NumCompaniesWorked', 'OverTime','BusinessTravelFrequency',
+       'DistanceFromHome', 'EmpEducationLevel','EducationBackground', 'MaritalStatus'], axis=1, inplace=True)
             return data
         except Exception as e:
             logging.error(f"Error in preprocessing the data: {e}")

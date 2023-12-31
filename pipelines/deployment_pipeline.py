@@ -111,16 +111,10 @@ def predictor(
     data = json.loads(data)
     data.pop("columns")
     data.pop("index")
-    columns_for_df = [ 'Age', 'Gender', 'EducationBackground', 'MaritalStatus',
-       'EmpDepartment', 'EmpJobRole', 'BusinessTravelFrequency',
-       'DistanceFromHome', 'EmpEducationLevel', 'EmpEnvironmentSatisfaction',
-       'EmpHourlyRate', 'EmpJobInvolvement', 'EmpJobLevel',
-       'EmpJobSatisfaction', 'NumCompaniesWorked', 'OverTime',
-       'EmpLastSalaryHikePercent', 'EmpRelationshipSatisfaction',
-       'TotalWorkExperienceInYears', 'TrainingTimesLastYear',
-       'EmpWorkLifeBalance', 'ExperienceYearsAtThisCompany',
-       'ExperienceYearsInCurrentRole', 'YearsSinceLastPromotion',
-       'YearsWithCurrManager', 'Attrition']
+    columns_for_df = ['Gender','EmpDepartment', 'EmpJobRole', 'EmpEnvironmentSatisfaction',
+       'EmpLastSalaryHikePercent', 'EmpWorkLifeBalance',
+       'ExperienceYearsAtThisCompany', 'ExperienceYearsInCurrentRole',
+       'YearsSinceLastPromotion', 'YearsWithCurrManager']
     try:
       df = pd.DataFrame(data["data"], columns=columns_for_df)
       json_list = json.loads(json.dumps(list(df.T.to_dict().values())))
